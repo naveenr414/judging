@@ -4,4 +4,3 @@ parsedatetime==1.2
 python-dateutil==1.5
 requests==2.3.0
 simplejson==3.5.3
-wsgiref==0.1.2

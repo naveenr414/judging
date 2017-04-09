@@ -1,1 +1,1 @@
-"# Judging"
+# Judging

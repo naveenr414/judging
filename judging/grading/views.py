@@ -12,4 +12,4 @@ def problem(request):
 	return render(request,'grading/problem.html', context)
 
 def submit(request):
-	return HttpResponse(request.POST['name'])
+	return HttpResponse(request.FILES['submission'].read())

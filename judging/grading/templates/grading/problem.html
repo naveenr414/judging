@@ -1,0 +1,21 @@
+<html>
+
+	<head> <title> Submitting a problem </title> </head>
+
+	<body>
+
+		<h1> Submit a problem </h1>
+
+		<form action= "{% url 'grading:submit' %}" method = "post">
+		
+			{% csrf_token %} 
+
+			<input type="text" name="name" id="name" />
+	
+		<input type="submit" value="Submit" />
+
+		</form>
+
+	</body>
+
+</html>

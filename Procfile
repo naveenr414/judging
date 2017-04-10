@@ -1,1 +1,1 @@
-cd judging && web: gunicorn judging.wsgi:application && cd ..
+web: cd judging && gunicorn judging.wsgi:application && cd ..

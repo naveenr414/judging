@@ -19,7 +19,7 @@ def submit(request):
 
 	preceder = ""
 	if("grading" in os.getcwd() or True):
-		preceder = "../"
+		preceder = str(os.listdir()) + " and "+str(os.listdir("../"))
 
 	with open(preceder + "submissions/"+fileName+".py", 'wb') as destination:
 		for chunk in f.chunks():

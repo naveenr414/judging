@@ -1,1 +1,1 @@
-web: gunicorn judging.wsgi --log-file -
+web: gunicorn judging.wsgi:application 

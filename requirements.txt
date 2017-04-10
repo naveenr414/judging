@@ -4,3 +4,8 @@ parsedatetime==1.2
 python-dateutil==1.5
 requests==2.3.0
 simplejson==3.5.3
+gunicorn==19.0.0
+dj-database-url==0.4.1
+gunicorn==19.6.0
+psycopg2==2.6.2
+whitenoise==2.0.6

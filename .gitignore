@@ -1,5 +1,4 @@
 db.sqlite3
 *.pyc
 secret.py
-judging/submissions
 judging/judging/secret/__init__.py

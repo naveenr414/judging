@@ -1,1 +1,1 @@
-web: python3 judging/manage.py runserver
+web: gunicorn judging.wsgi --log-file -

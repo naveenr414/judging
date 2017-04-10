@@ -18,7 +18,7 @@ def submit(request):
 	f = request.FILES['submission']
 
 	preceder = ""
-	if("grading" in os.getcwd()):
+	if("grading" in os.getcwd() or True):
 		preceder = "../"
 
 	with open(preceder + "submissions/"+fileName+".py", 'wb') as destination:

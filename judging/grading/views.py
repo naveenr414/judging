@@ -18,29 +18,34 @@ def problem(request):
 	return render(request,'grading/problem.html', context)
 
 def submit(request):
-	fileName = request.POST['name']
 	f = request.FILES['submission']
+	
+	fileName = f.name
+	problemName = request.POST['name']
 
-	preceder = ""
-	if("grading" in os.getcwd() and False):
-		preceder = str(os.listdir()) + " and "+str(os.listdir("../"))
-
-	with open(preceder + "submissions/"+fileName+".py", 'wb') as destination:
+	with open("../submissions/"+fileName, 'wb') as destination:
 		for chunk in f.chunks():
 			destination.write(chunk)
 
+	error = None
 	start = time.time()
-	os.system("cd "+preceder+"submissions \n python3 "+fileName+".py")
+	attempt = os.system("cd ../submissions \n python3 "+fileName)
+	if(attempt!=0):
+		error="Compile"
+		return HttpResponse("Your program failed to compile")
 	end = time.time()-start
-
-	f = open("../answers/problemList.txt").read().split("\n")[:-1]
-	return HttpResponse(str(f));
 
 	if(end>=6):
 		return HttpResponse('Your response took too long')
 	else:
-		realFile = open(preceder+"answers/"+fileName+".out").read()
-		theirs = open(preceder+"submissions/"+fileName+".out").read()
+		realFile = open("../answers/"+problemName+".out").read()
+		theirs = open("../submissions/"+problemName+".out").read()
+	
+
+		f = open("../submissions/"+problemName+".out","w")
+		f.write(" ")
+		f.close()
+
 		if(theirs == realFile):
 			return HttpResponse("Nice job, you solved it")
 		else:

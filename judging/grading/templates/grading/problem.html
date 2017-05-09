@@ -10,9 +10,14 @@
 		
 			{% csrf_token %} 
 
-
 			Problem Name (all lower case)
-			<input type="text" name="name" id="name" />
+			<select name="name">
+
+				{% for name in problemList %}
+					<option value="{{name}}"> {{name}} </option> 
+				{% endfor %}
+
+			</select>
 	
 			<input type="file" name="submission" id="sub" />
 

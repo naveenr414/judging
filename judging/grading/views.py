@@ -10,7 +10,11 @@ def index(request):
 	return HttpResponse("<h1> Hello World </h1>")
 
 def problem(request):
-	context = {}
+	
+	problemList = open("../answers/problemList.txt").read().split("\n")[:-1]
+
+	context = {'problemList':problemList}
+
 	return render(request,'grading/problem.html', context)
 
 def submit(request):
@@ -29,6 +33,8 @@ def submit(request):
 	os.system("cd "+preceder+"submissions \n python3 "+fileName+".py")
 	end = time.time()-start
 
+	f = open("../answers/problemList.txt").read().split("\n")[:-1]
+	return HttpResponse(str(f));
 
 	if(end>=6):
 		return HttpResponse('Your response took too long')

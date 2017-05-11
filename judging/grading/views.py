@@ -10,20 +10,22 @@ def index(request):
 	return HttpResponse("<h1> Hello World </h1>")
 
 def problem(request):
+	preceding = ""
 	
-	problemList = open("../answers/problemList.txt").read().split("\n")[:-1]
+	problemList = open(preceding+"answers/problemList.txt").read().split("\n")[:-1]
 
 	context = {'problemList':problemList}
 
 	return render(request,'grading/problem.html', context)
 
 def submit(request):
+	preceding = ""
 	f = request.FILES['submission']
 	
 	fileName = f.name
 	problemName = request.POST['name']
 
-	with open("../submissions/"+fileName, 'wb') as destination:
+	with open(preceding+"submissions/"+fileName, 'wb') as destination:
 		for chunk in f.chunks():
 			destination.write(chunk)
 
@@ -38,11 +40,11 @@ def submit(request):
 	if(end>=6):
 		return HttpResponse('Your response took too long')
 	else:
-		realFile = open("../answers/"+problemName+".out").read()
-		theirs = open("../submissions/"+problemName+".out").read()
+		realFile = open(preceding+"answers/"+problemName+".out").read()
+		theirs = open(preceding+"submissions/"+problemName+".out").read()
 	
 
-		f = open("../submissions/"+problemName+".out","w")
+		f = open(preceding+"submissions/"+problemName+".out","w")
 		f.write(" ")
 		f.close()
 

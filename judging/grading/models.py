@@ -8,3 +8,5 @@ class Submission(models.Model):
 class Response(models.Model):
 	submissionID = models.ForeignKey(Submission,on_delete=models.CASCADE)
 	correct = models.BooleanField(default=False)
+
+

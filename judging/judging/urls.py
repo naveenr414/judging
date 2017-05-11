@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import include,url
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^grading/',include('grading.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^users/',include('users.urls')),
 ]

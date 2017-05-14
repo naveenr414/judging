@@ -9,7 +9,7 @@
 * Write each submission to the models
     * Currently, nothing is written to the models
 * Write the result of grading to the models
-* Create a login system
+* ~~Create a login system~~
 * Concurrency
     * Run the Grader in the background
         * Do what USACO does, and run the grading in the background, then update

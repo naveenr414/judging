@@ -7,4 +7,10 @@ class User(models.Model):
     teamName = models.CharField(max_length = 50)
     school = models.CharField(max_length = 50)
 
+    #HASHED
+    password = models.CharField(max_length=100)
+
     division = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.username

@@ -3,10 +3,14 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 import os
 import time
+from users.models import User
 
 # Create your views here.
 
 def index(request):
+	if('userId' in request.session):
+		return HttpResponse(User.objects.get(pk=request.session['userId']))
+
 	return HttpResponse("<h1> Hello World </h1>")
 
 def problem(request):

@@ -8,7 +8,26 @@ import hashlib
 
 # Create your views here.
 def login(request):
-	return HttpResponse("Login")
+	context = {}
+	return render(request,'users/login.html',context)
+
+def loginConfirm(request):
+	username=request.POST['username']
+	password=hashlib.md5(request.POST['password'].encode()).hexdigest()
+	
+	if(User.objects.filter(username=username).count()):
+		attempt = User.objects.filter(username=username)[0]
+		if(attempt.password == password):
+			request.session['userId'] = attempt.id
+			return HttpResponse("Works")
+	
+	return HttpResponse("Doesn't Work")	
+
+def logout(request):
+	if('userId' in request.session):
+		del request.session['userId']
+	
+	return HttpResponse("Not logged in anymore")
 
 def register(request):
 	context = {}
@@ -27,4 +46,4 @@ def registerComplete(request):
 		u = User(username=username,teamName=teamName,division=division,password=hashedPassword,school=school)
 		u.save()
 
-		return HttpResponse(str(list(User.objects.all())))
+		return HttpResponse("It worked")

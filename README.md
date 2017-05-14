@@ -9,9 +9,6 @@
 * Write each submission to the models
     * Currently, nothing is written to the models
 * Write the result of grading to the models
-* Security
-    * Prevent Users from accessing any other files except the input and output
-    * Only check the hash (would this be a good idea?) 
 * Create a login system
 * Concurrency
     * Run the Grader in the background
@@ -38,6 +35,12 @@
 ## Printing System
 * Create a file submission system for printing
 * Do we want it to automatically print? 
+
+## Security
+* One can enter a faulty Problem Name by not selecting from the list, and then shellcode from there
+* One can enter a faulty filename and then shellcode from there
+* Some type of password hacking, AKA Hash
+* Prevent Users from accessing other files
 
 # How to use
 * To add problems, go to Answers/problemList.txt, make sure there's a newline after the last problem

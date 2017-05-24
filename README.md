@@ -5,10 +5,10 @@
 * Write a compiler for C++, Java
 * ~~Use a drop down list for the problem name~~
     * ~~Read the list of problems from a file~~
-* Create models for submission
-* Write each submission to the models
-    * Currently, nothing is written to the models
-* Write the result of grading to the models
+* ~~Create models for submission~~
+* ~~Write each submission to the models~~
+    * ~~Currently, nothing is written to the models~~
+* ~~Write the result of grading to the models~~
 * ~~Create a login system~~
 * Concurrency
     * Run the Grader in the background
@@ -19,6 +19,7 @@
         *  Update the user as soon as a new message is sent
 * Use CSS to make it look nice
 * Check/Return different types of error (Time Out, Compile Error, Wrong Answer) 
+* Add a model for problems, currently reading from textfile 
 
 ## Clarification System
 * Use the message system (as part of the grader) to create clarification system
@@ -38,7 +39,8 @@
 
 ## Security
 * One can enter a faulty Problem Name by not selecting from the list, and then shellcode from there
-* One can enter a faulty filename and then shellcode from there
+* ~~One can enter a faulty filename and then shellcode from there~~
+* Check file hash
 * Some type of password hacking, AKA Hash
 * Prevent Users from accessing other files
 

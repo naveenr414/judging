@@ -1,0 +1,22 @@
+#At number, mod
+z = list(open("input.in").read())
+for i in range(0,len(z)):
+	z[i] = int(z[i])
+dp = []
+for i in range(0,len(z)):
+	l = []
+	for j in range(0,9):
+		l.append(0)
+	dp.append(l)
+
+for i in range(len(z)-1,-1,-1):
+	for j in range(0,9):
+		if(i == len(z)-1):
+			if(z[i]%9 == j):
+				dp[i][j] = 1
+			elif(j == 0):
+				dp[i][j] = 1
+		else:
+			dp[i][j] = dp[i+1][j]+dp[i+1][(j-z[i])%9]
+
+print(dp[0][5])
